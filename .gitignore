@@ -1,0 +1,9 @@
+# custom
+lessons/
+projects/
+
+# environment
+.env
+
+# django
+db.sqlite3
