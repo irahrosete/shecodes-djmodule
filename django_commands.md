@@ -97,3 +97,6 @@ create vote views and urls
 create navbar partial
 
 create pages app
+
+set up zingcharts in results.html
+create results_data views and urls
