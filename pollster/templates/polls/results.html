@@ -3,9 +3,9 @@
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-  <h1 class="mb-5 text-center">{{ question.question_text }}</h1>
+  <h2 class="mb-5 text-center">{{ question.question_text }}</h3>
 
-  <ul class="list-group mb-5">
+  <ul class="list-group mb-3">
     {% for choice in question.choice_set.all %}
     <li class="list-group-item position-relative">
       {{ choice.choice_text }} <span class="badge text-bg-success position-absolute top-50 end-0 translate-middle">{{ choice.votes }} vote{{ choice.votes | pluralize }}</span>
