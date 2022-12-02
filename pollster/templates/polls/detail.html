@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
   <a href="{% url 'polls:index' %}" class="btn btn-secondary btn-sm mb-3">Back to polls</a>
-  <h1 class="text-center mb-3">{{ question.question_text }}</h1>
+  <h2 class="text-center mb-3">{{ question.question_text }}</h2>
 
 {% if error_message %}
   <p class="alert alert-danger">
