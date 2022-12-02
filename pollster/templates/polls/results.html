@@ -19,39 +19,48 @@
   <a href="{% url 'polls:detail' question.id %}" class="btn btn-dark">Vote again?</a>
 
   <script>
+    var state = {
+      "items": [],
+      "values": []
+    }
     var objId = "{{ question.id }}"
-    var dataURL = `/polls/results-data/${objId}`
+    var dataURL = `/polls/results-data/${objId}/`
+
     $.ajax({
       method: "GET",
       url: dataURL,
       success: function(response){
         console.log('RESPONSE: ', response)
+        for (var i in response){
+          var key = Object.keys(response[i])[0]
+          var value = Object.values(response[i])[0]
+
+          state.items.push(key)
+          state.values.push(value)
+
+        }
+        console.log('STATE: ', state)
+        buildChart()
       }
     })
 
-    var chartData = {
-      "type": "bar",
-      "scale-x": {
-        "values": [
-          "D",
-          "E",
-          "T"
+    function buildChart() {
+      var chartData = {
+        "type": "bar",
+        "scale-x": {
+          "values": state.items
+        },
+        "series": [
+          {
+            "values": state.values
+          }
         ]
-      },
-      "series": [
-        {
-          "values": [
-            25,
-            23,
-            27
-          ]
-        }
-      ]
-    }
+      }
 
-    zingchart.render({
-      id: "myChart",
-      data: chartData,
-    });
+      zingchart.render({
+        id: "myChart",
+        data: chartData,
+      });
+    }
   </script>
 {% endblock %}
