@@ -9,6 +9,7 @@
             {{ question.question_text }}
           </p>
           <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary btn-sm">Vote now</a>
+          <a href="{% url 'polls:results' question.id %}" class="btn btn-secondary btn-sm">Results</a>
         </div>
       </div>
     {% endfor %}
