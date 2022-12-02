@@ -100,3 +100,5 @@ create pages app
 
 set up zingcharts in results.html
 create results_data views and urls
+call chart data using ajax
+create state to assign chart data
